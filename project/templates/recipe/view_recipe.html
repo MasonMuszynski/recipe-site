@@ -4,12 +4,12 @@
 
 
 
-    <div class="section">
+    <div id="recipe-meta" class="section">
         <div class="container">
             <div class="columns">
                 <div class="column is-6">
                     <div class="image is-4by3">
-                        <img src="https://placehold.it/640x480">
+                        <img id="recipe-main-img" src="https://placehold.it/640x480">
                     </div>
                 </div>
                 <div class="column is-5 is-offset-1">
@@ -19,10 +19,10 @@
 
                     <div class="columns is-mobile">
                         <div class="column is-half">
-                            <p>Chef:</p>
+                            <p>Chef: First Last</p>
                         </div>
-                        <div class="column is-1 is-offset-2">
-                            <p>Time:</p>
+                        <div class="column is-5 is-offset-2">
+                            <p>Time: #h #m</p>
                         </div>
                     </div>
 
@@ -42,7 +42,7 @@
     </div>
 
 
-    <div class="hero is-title">
+    <div id="recipe-ingredients-title" class="hero is-title">
         <div class="hero-body">
             <div class="container has-text-centered">
                 <h2><b>I N G R E D I E N T S</b></h2>
@@ -50,42 +50,121 @@
         </div>
     </div>
 
-    <div class="hero is-ingredients">
+    <div id="recipe-ingredients" class="hero is-green">
         <div class="hero-body">
             <div class="container">
                 <div class="columns is-mobile">
 
                     <div class="column col-ingred" align="center">
-                        <p><b>Name</b></p>
+                        <p><b>Tuna</b></p>
                         <p># unit</p>
                         <img class="ingredients" src="{% static '/ingredient-icons/tuna.png'%}">
                     </div>
 
                     <div class="column col-ingred" align="center">
-                        <p><b>Name</b></p>
+                        <p><b>Flour</b></p>
                         <p># unit</p>
                         <img class="ingredients" src="{% static '/ingredient-icons/flour.png'%}">
                     </div>
 
                     <div class="column col-ingred" align="center">
-                        <p><b>Name</b></p>
+                        <p><b>Milk</b></p>
                         <p># unit</p>
                         <img class="ingredients" src="{% static '/ingredient-icons/milk.png'%}">
                     </div>
 
                     <div class="column col-ingred" align="center">
-                        <p><b>Name</b></p>
-                        <p># unit</p>
+                        <div class="div-ingred">
+                        <p><b>Cream of Mushroom Soup</b></p>
+                            <p># unit</p></div>
                         <img class="ingredients" src="{% static '/ingredient-icons/soup.png'%}">
                     </div>
 
                     <div class="column col-ingred" align="center">
-                        <p><b>Name</b></p>
+                        <p><b>Egg Noodles</b></p>
                         <p># unit</p>
                         <img class="ingredients" src="{% static '/ingredient-icons/egg-noodles.png'%}">
                     </div>
 
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="recipe-instruction" class="section">
+        <div class="container">
+
+            <div class="card">
+                <header class="card-header">
+                    <p class="card-header-title">Step 1</p>
+
+                </header>
+
+                <div class="card-content">
+                    <div class="content">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                        nisi ut aliquip ex ea commodo consequat.
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="card">
+                <header class="card-header">
+                    <p class="card-header-title">Step 2</p>
+
+                </header>
+
+                <div class="card-content">
+                    <div class="content">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                        nisi ut aliquip ex ea commodo consequat.
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+    <div id="recipe-chef-title" class="hero is-title">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h2><b>C H E F</b></h2>
+            </div>
+        </div>
+    </div>
+
+    <div id="recipe-chef" class="hero is-chef">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns">
+
+                <div class="column" align="center">
+                        <img class="profile-pic-circle" src="https://placehold.it/256x256">
+                </div>
+
+                <div class="column">
+                    <h2 class="title has-text-white" align="center">First Last</h2>
+
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                        culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+                </div>
+            </div>
             </div>
         </div>
     </div>

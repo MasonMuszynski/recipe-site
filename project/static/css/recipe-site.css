@@ -39,6 +39,9 @@ body {
 p, h2 {
     font-family: 'Raleway', sans-serif;
 }
+#recipe-main-img{
+    border: 5px solid #eee;
+}
 .hero.is-title .hero-body{
     padding-bottom: .75rem;
     padding-top: .75rem;
@@ -46,18 +49,47 @@ p, h2 {
     color: #f7f7f7;
 
 }
-.hero.is-ingredients .hero-body{
+.hero.is-green .hero-body{
     padding-bottom: .75rem;
     padding-top: .75rem;
     background-color: #ACCE91;
-    color: #f7f7f7;
+    color: #ffffff;
 }
 .ingredients {
     max-width: 100%;
     height: auto;
 }
-.col-ingred:hover{
+.col-ingred{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.col-ingred:active{
+    overflow: visible;
     transform: scale(1.1);
     transition-duration: 0.25s;
     transition-property: transform;
+}
+.hero.is-chef .hero-body{
+    padding-bottom: .75rem;
+    padding-top: 1.4rem;
+    background-color: #ACCE91;
+    color: #ffffff;
+}
+.profile-pic-circle {
+    height: 256px;
+    width: 256px;
+    border-radius: 50%;
+    border: 5px solid #eee;
+    box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);
+}
+.card {
+    margin-bottom: 15px;
+      background-color: #f2ebe1;
+      -webkit-box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+              box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+      color: #4a4a4a;
+      max-width: 100%;
+      position: relative;
+
 }
