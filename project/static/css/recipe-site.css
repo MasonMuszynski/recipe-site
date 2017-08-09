@@ -39,3 +39,25 @@ body {
 p, h2 {
     font-family: 'Raleway', sans-serif;
 }
+.hero.is-title .hero-body{
+    padding-bottom: .75rem;
+    padding-top: .75rem;
+    background-color: #A2C288;
+    color: #f7f7f7;
+
+}
+.hero.is-ingredients .hero-body{
+    padding-bottom: .75rem;
+    padding-top: .75rem;
+    background-color: #ACCE91;
+    color: #f7f7f7;
+}
+.ingredients {
+    max-width: 100%;
+    height: auto;
+}
+.col-ingred:hover{
+    transform: scale(1.1);
+    transition-duration: 0.25s;
+    transition-property: transform;
+}
