@@ -8,5 +8,5 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
 
     # ex: /recipe/5/
-    # url(r'^(?P<recipe_id>[0-9]+)/$', views.detail, name='detail'),
+    url(r'^(?P<recipe_id>[0-9]+)/$', views.recipe_detail, name='detail'),
 ]
