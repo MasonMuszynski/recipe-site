@@ -2,9 +2,6 @@
     Displays the recipe details:
     image, recipe name, chef, time, description
     steps, and chef bio at the end of the page
-
-    sent from recipe_detail in recipe/views.py
-    'recipe' object query sent along
 -->
 
 {% extends 'base.html' %}
@@ -36,7 +33,9 @@
                     </div>
 
                     <br>
-                    <p>{{ recipe.description }}</p>
+                    <p>{{ recipe.description }}
+                    </p>
+
 
 
                 </div>
@@ -56,38 +55,18 @@
     <div id="recipe-ingredients" class="hero is-green">
         <div class="hero-body">
             <div class="container">
-                <div class="columns is-mobile">
+                <div class="columns is-mobile is-multiline">
 
-                    <div class="column col-ingred" align="center">
-                        <p><b>Tuna</b></p>
-                        <p># unit</p>
-                        <img class="ingredients" src="{% static '/ingredient-icons/tuna.png'%}">
-                    </div>
+                    {% for e in ingredients %}
+                        <div class="column is-one-fifth col-ingred" align="center">
+                            <p><b>{{ e.ingredient.name }}</b></p>
+                            <!-- TODO: make so quanity displays integer if whole number otherwise decimal-->
+                            <p>{{ e.quantity }} {{ e.unit }}</p>
+                            <img class="ingredients" src="{% static "/ingredient-icons/"|add:e.ingredient.name|cut:" "|lower|add:".png" %}">
+                        </div>
+                        {% endfor %}
 
-                    <div class="column col-ingred" align="center">
-                        <p><b>Flour</b></p>
-                        <p># unit</p>
-                        <img class="ingredients" src="{% static '/ingredient-icons/flour.png'%}">
-                    </div>
 
-                    <div class="column col-ingred" align="center">
-                        <p><b>Milk</b></p>
-                        <p># unit</p>
-                        <img class="ingredients" src="{% static '/ingredient-icons/milk.png'%}">
-                    </div>
-
-                    <div class="column col-ingred" align="center">
-                        <div class="div-ingred">
-                        <p><b>Cream of Mushroom Soup</b></p>
-                            <p># unit</p></div>
-                        <img class="ingredients" src="{% static '/ingredient-icons/soup.png'%}">
-                    </div>
-
-                    <div class="column col-ingred" align="center">
-                        <p><b>Egg Noodles</b></p>
-                        <p># unit</p>
-                        <img class="ingredients" src="{% static '/ingredient-icons/egg-noodles.png'%}">
-                    </div>
 
                 </div>
             </div>
@@ -97,42 +76,21 @@
     <div id="recipe-instruction" class="section">
         <div class="container">
 
+            {% for e in steps %}
             <div class="card">
                 <header class="card-header">
-                    <p class="card-header-title">Step 1</p>
+                    <p class="card-header-title">{{ e.title }}</p>
 
                 </header>
 
                 <div class="card-content">
                     <div class="content">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                        nisi ut aliquip ex ea commodo consequat.
+                        {{ e.details }}
                     </div>
                 </div>
 
             </div>
-
-            <div class="card">
-                <header class="card-header">
-                    <p class="card-header-title">Step 2</p>
-
-                </header>
-
-                <div class="card-content">
-                    <div class="content">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                        nisi ut aliquip ex ea commodo consequat.
-                    </div>
-                </div>
-
-            </div>
-
-
-
+            {% endfor %}
 
         </div>
     </div>

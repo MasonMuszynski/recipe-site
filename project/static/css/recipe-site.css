@@ -60,15 +60,23 @@ p, h2 {
     height: auto;
 }
 .col-ingred{
-    text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    text-overflow: ellipsis;
 }
 .col-ingred:active{
     overflow: visible;
+    white-space: normal;
+    text-align: center;
     transform: scale(1.1);
     transition-duration: 0.25s;
     transition-property: transform;
+}
+.columns.is-mobile > .column.is-one-fifth {
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  width: 20%;
 }
 .hero.is-chef .hero-body{
     padding-bottom: .75rem;

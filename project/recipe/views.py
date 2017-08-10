@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect, Http404
 
 from django.core.exceptions import ObjectDoesNotExist
 
-from .models import Recipe
+from .models import Recipe, Step
 
 
 def index(request):
@@ -24,4 +24,9 @@ def recipe_detail(request, recipe_id):
     except Recipe.DoesNotExist:
         raise Http404("Recipe does not exist.")
 
-    return render(request, 'recipe/view_recipe.html', {'recipe': recipe})
+    recipeIngreds = recipe.recipeingredient_set.all()
+
+    recipeSteps = Step.objects.filter(recipe=recipe).order_by('id')
+
+    return render(request, 'recipe/view_recipe.html',
+                  {'recipe': recipe, 'ingredients': recipeIngreds, 'steps': recipeSteps})
