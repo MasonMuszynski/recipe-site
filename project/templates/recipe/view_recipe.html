@@ -2,6 +2,11 @@
     Displays the recipe details:
     image, recipe name, chef, time, description
     steps, and chef bio at the end of the page
+
+    template variables:
+        recipe: the unique recipe
+        ingredients: all recipe's ingredients from M:M relation
+        steps: all recipe's steps from M:1 relation
 -->
 
 {% extends 'base.html' %}
@@ -9,40 +14,41 @@
 {% block content %}
 
 
+    <!--Displays recipe name and description-->
 
     <div id="recipe-meta" class="section">
         <div class="container">
             <div class="columns">
+
                 <div class="column is-6">
                     <div class="image is-4by3">
                         <img id="recipe-main-img" src="https://placehold.it/640x480">
                     </div>
                 </div>
+
                 <div class="column is-5 is-offset-1">
                     <h2 class="title is-2" align="center">{{ recipe.name }}</h2>
-
                     <hr>
-
                     <div class="columns is-mobile">
                         <div class="column is-half">
+                            <!-- TODO: Display user's name-->
                             <p>Chef: First Last</p>
                         </div>
                         <div class="column is-5 is-offset-2">
+                            <!-- TODO: Display time to complete recipe -->
                             <p>Time: #h #m</p>
                         </div>
                     </div>
-
                     <br>
-                    <p>{{ recipe.description }}
-                    </p>
-
-
-
+                    <p>{{ recipe.description }}</p>
                 </div>
+
             </div>
         </div>
     </div>
 
+
+    <!--The ingredients title-->
 
     <div id="recipe-ingredients-title" class="hero is-title">
         <div class="hero-body">
@@ -52,48 +58,55 @@
         </div>
     </div>
 
+
+    <!--The ingredients bar-->
+
     <div id="recipe-ingredients" class="hero is-green">
         <div class="hero-body">
             <div class="container">
                 <div class="columns is-mobile is-multiline">
 
-                    {% for e in ingredients %}
+                    <!--
+                    Displays all ingredients used within the recipe. Each row contains 5 ingredients
+                    TODO: make so quanity displays integer if whole number otherwise decimal
+                    template filters convert 'Word Word' into 'wordword' to obtain proper icons
+                    -->
+                    {% for i in ingredients %}
                         <div class="column is-one-fifth col-ingred" align="center">
-                            <p><b>{{ e.ingredient.name }}</b></p>
-                            <!-- TODO: make so quanity displays integer if whole number otherwise decimal-->
-                            <p>{{ e.quantity }} {{ e.unit }}</p>
-                            <img class="ingredients" src="{% static "/ingredient-icons/"|add:e.ingredient.name|cut:" "|lower|add:".png" %}">
+                            <p><b>{{ i.ingredient.name }}</b></p>
+                            <p>{{ i.quantity }} {{ i.unit }}</p>
+                            <img class="ingredients" src="{% static "/ingredient-icons/"|add:i.ingredient.name|cut:" "|lower|add:".png" %}">
                         </div>
-                        {% endfor %}
-
-
+                    {% endfor %}
 
                 </div>
             </div>
         </div>
     </div>
+
+
+    <!--Cards displaying recipe steps-->
 
     <div id="recipe-instruction" class="section">
         <div class="container">
 
-            {% for e in steps %}
-            <div class="card">
-                <header class="card-header">
-                    <p class="card-header-title">{{ e.title }}</p>
+            {% for s in steps %}
+                <div class="card">
+                    <header class="card-header">
+                        <p class="card-header-title">{{ s.title }}</p>
+                    </header>
 
-                </header>
-
-                <div class="card-content">
-                    <div class="content">
-                        {{ e.details }}
+                    <div class="card-content">
+                        <div class="content">{{ s.details }}</div>
                     </div>
                 </div>
-
-            </div>
             {% endfor %}
 
         </div>
     </div>
+
+
+    <!--The chef bio title-->
 
     <div id="recipe-chef-title" class="hero is-title">
         <div class="hero-body">
@@ -102,6 +115,9 @@
             </div>
         </div>
     </div>
+
+
+    <!--The chef bio section-->
 
     <div id="recipe-chef" class="hero is-chef">
         <div class="hero-body">

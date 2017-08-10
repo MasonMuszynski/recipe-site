@@ -18,6 +18,9 @@ class Recipe(models.Model):
 
 
 class RecipeIngredient(models.Model):
+    """
+    Many to Many relationship to collect more information
+    """
     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     quantity = models.DecimalField(max_digits=3,decimal_places=1)
