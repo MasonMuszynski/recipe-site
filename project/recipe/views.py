@@ -29,4 +29,4 @@ def recipe_detail(request, recipe_id):
     recipeSteps = Step.objects.filter(recipe=recipe).order_by('id')
 
     return render(request, 'recipe/view_recipe.html',
-                  {'recipe': recipe, 'ingredients': recipeIngreds, 'steps': recipeSteps})
+                  {'request': request, 'recipe': recipe, 'ingredients': recipeIngreds, 'steps': recipeSteps})

@@ -11,6 +11,9 @@ a.navbar-item:hover{
     background-color: #A2C288;
     color: #f7f7f7;
   }
+.login-btn-padding {
+  padding: 2px !important;
+}
 .navbar-link::after {
     border: 1px solid #f7f7f7;
     border-right: 0;
@@ -32,6 +35,15 @@ a.navbar-item:hover{
 }
 .navbar-burger.is-active span {
     background-color: #f7f7f7;
+}
+.button.is-login.is-inverted.is-outlined {
+  background-color: transparent;
+  border-color: #fff;
+  color: #fff;
+}
+.button.is-login.is-inverted.is-outlined:hover, .button.is-login.is-inverted.is-outlined:focus {
+  background-color: #fff;
+  color: #A2C288;
 }
 body {
     background-color: #f7f7f7;
