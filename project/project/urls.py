@@ -21,6 +21,7 @@ from . import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^recipe/?', include('recipe.urls')),
+    #url(r'^profile/?', include('userprofile.urls')),
     url(r'^login/', views.loginUser),
-    url(r'logout/', views.logoutUser)
+    url(r'logout/', views.logoutUser),
 ]
