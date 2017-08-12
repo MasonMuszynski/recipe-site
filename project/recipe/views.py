@@ -24,9 +24,11 @@ def recipe_detail(request, recipe_id):
     except Recipe.DoesNotExist:
         raise Http404("Recipe does not exist.")
 
-    # Querying database to obtain ingredients and steps of the recipe
+    # Querying database to obtain ingredients, steps, and chef of the recipe
     recipeIngreds = recipe.recipeingredient_set.all()
     recipeSteps = Step.objects.filter(recipe=recipe).order_by('id')
+    chef = recipe.chef
 
     return render(request, 'recipe/view_recipe.html',
-                  {'request': request, 'recipe': recipe, 'ingredients': recipeIngreds, 'steps': recipeSteps})
+                  {'request': request, 'recipe': recipe, 'ingredients': recipeIngreds, 'steps': recipeSteps,
+                   'chef': chef})
