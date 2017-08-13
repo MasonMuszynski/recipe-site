@@ -32,11 +32,11 @@
                     <div class="columns is-mobile">
                         <div class="column is-half">
                             <!-- TODO: Display user's name-->
-                            <p>Chef: First Last</p>
+                            <p>Chef: {{ chef.first_name }} {{ chef.last_name }}</p>
                         </div>
                         <div class="column is-5 is-offset-2">
                             <!-- TODO: Display time to complete recipe -->
-                            <p>Time: #h #m</p>
+                            <p>Time: {{ recipe.time }}</p>
                         </div>
                     </div>
                     <br>

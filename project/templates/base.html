@@ -48,7 +48,7 @@
 
         <div class="navbar-end">
             <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link">Username</a>
+                <a class="navbar-link">{{ request.user.first_name }}</a>
                 <div class="navbar-dropdown is-boxed">
                     <a class="navbar-item">Profile</a>
                     <a class="navbar-item">Add Recipe</a>
@@ -102,12 +102,28 @@
     </div>
 
 
-  </nav>
+    </nav>
 
-  <div>
-    {% block content %}
-    {% endblock %}
-  </div>
+    <!--Display messages and color appropriately on message tag-->
+
+    {% if messages %}
+        <br>
+        <div class="container">
+            {% for message in messages %}
+                <div class="notification {{ message.tags }}">
+                    <ul class="messages">
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    </ul>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
 
 
 

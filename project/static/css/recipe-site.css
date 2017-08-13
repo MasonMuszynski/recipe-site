@@ -45,6 +45,14 @@ a.navbar-item:hover{
   background-color: #fff;
   color: #A2C288;
 }
+.notification.error {
+  background-color: #ff8072;
+  color: #fff;
+}
+.notification.info {
+  background-color: #6492db;
+  color: #fff;
+}
 body {
     background-color: #f7f7f7;
 }

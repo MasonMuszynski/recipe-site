@@ -5,6 +5,7 @@ Generic views for website
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 
 # TODO: restrict to users not logged in
 def loginUser(request):
@@ -32,7 +33,9 @@ def loginUser(request):
         login(request, user)
         return HttpResponseRedirect(nextPage)
     else:
-        raise Http404("Login Unsuccessful.")
+        messages.error(request, 'Login unsuccessful. Please try again.')
+        return HttpResponseRedirect(nextPage)
+        # raise Http404("Login Unsuccessful.")
 
 
 # TODO: restrict to logged in users only
@@ -44,7 +47,7 @@ def logoutUser(request):
     :return: a goodbye page confirming that the user has logged out.
     """
 
-    # TODO: use try/except. Create goodbye page
+    # TODO: use try/except.
 
     logout(request)
-    return HttpResponseRedirect('/recipe/')
+    return render(request, 'logout.html')

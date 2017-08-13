@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+import datetime
 
 
 class Ingredient(models.Model):
@@ -14,6 +15,7 @@ class Recipe(models.Model):
     description = models.CharField(max_length=400, null=True)
     ingredients = models.ManyToManyField(Ingredient, through='RecipeIngredient')
     chef = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    time = models.DurationField(default=datetime.timedelta(hours=0, minutes=0))
 
     def __str__(self):
         return self.name
