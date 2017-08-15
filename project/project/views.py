@@ -7,6 +7,7 @@ from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
+from .forms import RegisterForm
 
 def home(request):
     """
@@ -73,3 +74,28 @@ def logoutUser(request):
 
     logout(request)
     return render(request, 'logout.html', {'page_title':'Logout'})
+
+
+def register(request):
+    """
+    Register a user
+
+    :param request: The user to be registered
+    :return:
+    """
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=password)
+            user.first_name = form.cleaned_data.get('first_name')
+            user.last_name = form.cleaned_data.get('last_name')
+            user.save()
+            login(request, user)
+            return HttpResponseRedirect('/')
+    else:
+        form = RegisterForm
+    return render(request, 'register.html', {'form': form})
+
