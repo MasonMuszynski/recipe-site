@@ -6,12 +6,21 @@ from django.core.exceptions import ObjectDoesNotExist
 from .models import Recipe, Step
 
 
-def index(request):
+def explore(request):
+    """
+    A page to browse the existing recipes.
+    Sorting and searching
 
-    return render(request, 'recipe/view_recipe.html')
+    :param request:
+    :return:
+    """
+
+    return render(request, 'under_construction.html', {'request':request, 'page_title':'Explore'})
+
 
 def recipe_detail(request, recipe_id):
-    """ View the details of a recipe
+    """
+    View the details of a recipe
 
     :param request:
     :param recipe_id: the unique id of the recipe to be viewed
@@ -28,7 +37,8 @@ def recipe_detail(request, recipe_id):
     recipeIngreds = recipe.recipeingredient_set.all()
     recipeSteps = Step.objects.filter(recipe=recipe).order_by('id')
     chef = recipe.chef
+    recipeName = recipe.name
 
     return render(request, 'recipe/view_recipe.html',
                   {'request': request, 'recipe': recipe, 'ingredients': recipeIngreds, 'steps': recipeSteps,
-                   'chef': chef})
+                   'chef': chef, 'page_title':recipeName})

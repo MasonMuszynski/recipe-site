@@ -7,6 +7,28 @@ from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
+
+def home(request):
+    """
+    The homepage of the recipe site
+
+    :param request:
+    :return:
+    """
+    # TODO: site name pagetitle
+    return render(request, 'home.html', {'request': request, 'page_title': 'Site Name'})
+
+
+def about(request):
+    """
+    The about page of the recipes site
+
+    :param request:
+    :return:
+    """
+    return render(request, 'under_construction.html', {'request': request, 'page_title': 'About'})
+
+
 # TODO: restrict to users not logged in
 def loginUser(request):
     """
@@ -50,4 +72,4 @@ def logoutUser(request):
     # TODO: use try/except.
 
     logout(request)
-    return render(request, 'logout.html')
+    return render(request, 'logout.html', {'page_title':'Logout'})

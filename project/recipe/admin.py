@@ -1,7 +1,8 @@
 from django.contrib import admin
-from .models import Recipe, Step, Ingredient, RecipeIngredient
+from .models import Recipe, Step, Ingredient, RecipeIngredient, FeaturedRecipe
 
 """
+Displays featured recipe (limit to one at a time)
 Displays ingredients in the database on admin page
 Displays recipes in the databse on admin page
 Inlines allow RecipeIngredient and Step to be viewed and edited under Recipe
@@ -24,5 +25,6 @@ class recipeComponents(admin.ModelAdmin):
         stepsInline,
     ]
 
+admin.site.register(FeaturedRecipe)
 admin.site.register(Ingredient)
 admin.site.register(Recipe, recipeComponents)

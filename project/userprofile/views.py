@@ -1,5 +1,11 @@
 from django.shortcuts import render
 
 def profileindex(request):
+    """
+    A user's profile page
 
-    return render(request, 'under_construction.html')
+    :param request:
+    :return:
+    """
+
+    return render(request, 'under_construction.html', {'page_title':'Profile'})

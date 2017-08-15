@@ -39,3 +39,19 @@ class Step(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class FeaturedRecipe(models.Model):
+    """
+    A featured recipe to be displayed on the home page.
+    Limit to only 1 recipe at a time
+    """
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    review = models.CharField(max_length=800)
+
+    def __str__(self):
+        return self.recipe.name
+
+    class Meta:
+        verbose_name = "Featured Recipe"
+        verbose_name_plural = "Featured Recipe"
