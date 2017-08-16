@@ -81,7 +81,7 @@ def register(request):
     Register a user
 
     :param request: The user to be registered
-    :return:
+    :return: user registration form
     """
     if request.method == 'POST':
         form = RegisterForm(request.POST)

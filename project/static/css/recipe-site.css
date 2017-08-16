@@ -45,6 +45,16 @@ a.navbar-item:hover{
   background-color: #fff;
   color: #A2C288;
 }
+.button.is-green {
+  background-color: #A2C288;
+  border-color: transparent;
+  color: #fff;
+}
+.button.is-red {
+  background-color: #ff8072;
+  border-color: transparent;
+  color: #fff;
+}
 .notification.error {
   background-color: #ff8072;
   color: #fff;
