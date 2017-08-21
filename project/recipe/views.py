@@ -18,7 +18,7 @@ def explore(request):
     :return:
     """
 
-    return render(request, 'under_construction.html', {'request':request, 'page_title':'Explore'})
+    return render(request, 'recipe/explore.html', {'request':request, 'page_title':'Explore'})
 
 
 def recipe_detail(request, recipe_id):
