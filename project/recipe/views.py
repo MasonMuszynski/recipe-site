@@ -18,7 +18,11 @@ def explore(request):
     :return:
     """
 
-    return render(request, 'recipe/explore.html', {'request':request, 'page_title':'Explore'})
+    # query all recipes in database
+    allRecipes = Recipe.objects.all()
+
+    return render(request, 'recipe/explore.html', {'request':request, 'page_title':'Explore',
+                                                   'allRecipes': allRecipes})
 
 
 def recipe_detail(request, recipe_id):
