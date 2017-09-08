@@ -16,6 +16,7 @@ class Recipe(models.Model):
     ingredients = models.ManyToManyField(Ingredient, through='RecipeIngredient')
     chef = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     time = models.DurationField(default=datetime.timedelta(hours=0, minutes=0))
+    photo = models.ImageField(upload_to='static/recipe-photos', default='static/recipe-photos/none.png')
 
     def __str__(self):
         return self.name
